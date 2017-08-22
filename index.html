@@ -12,7 +12,31 @@
 
 <body>
     <div class="container" id="vue-app">
-        <h1>Welcome {{name}}</h1>
+        <pre>{{$data|json}}</pre>
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>My todos</h1>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="todo in todos">
+                        {{todo.title}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row">
+                <div class="col-sm-12">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="add" class="form-control">
+                        </div>
+                        <div class="form-group">
+                                <button class="btn btn-success">add todo</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+
     </div>
     
     
@@ -22,7 +46,8 @@
         el: "#vue-app",
 
         data:   {
-            name: 'abc'
+            todos:[{id:1,title:'go fu'}],
+            newTodo : {id:null,title:null}
         }
     })
 </script>
