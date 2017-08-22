@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<header>
+   
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+    <script src="libs/vue.js"></script>
+    <script src="libs/jquery-3.2.1.slim.min.js"></script>
+    <script src="libs/popper.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+
+</header>
+
+<body>
+    <div class="container" id="vue-app">
+        <h1>Welcome {{name}}</h1>
+    </div>
+    
+    
+
+<script>
+    new Vue({
+        el: "#vue-app",
+
+        data:   {
+            name: 'abc'
+        }
+    })
+</script>
+</body>
+</html>
