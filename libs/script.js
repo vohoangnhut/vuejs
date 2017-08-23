@@ -20,6 +20,7 @@ var app = new Vue({
         },
 
         addNewItem(){
+            
             this.lstTask.push(this.newitem)
             this.newitem = {name:'', iscomplete:false}
         }
