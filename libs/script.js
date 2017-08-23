@@ -1,4 +1,23 @@
+Vue.component('item', {
+    template : '<li><slot></slot></li>'
+  })
 
+  Vue.component('listitem', {
+    template : '<div><item v-for="task in lstTask">{{task.name}}</item></div>',
+
+    data(){
+        return {
+            lstTask:[
+                {name:'go fishing', iscomplete:true},
+                {name:'play game', iscomplete:true},
+                {name:'fooooooooollllllball time', iscomplete:false},
+                {name:'clean hourse', iscomplete:true},
+                {name:'jelly fish feel', iscomplete:true},
+                {name:'go shopping', iscomplete:true}
+            ]
+        }
+    }
+  })
 
 var app = new Vue({
     el: "#vue-app",
