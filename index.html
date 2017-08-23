@@ -1,70 +1,23 @@
 <!DOCTYPE html>
 <html>
 <header>
-   
-    <link rel="stylesheet" href="libs/bootstrap.min.css">
     <script src="libs/vue.js"></script>
-    <script src="libs/jquery-3.2.1.slim.min.js"></script>
-    <script src="libs/popper.min.js"></script>
-    <script src="libs/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/style.css">
 </header>
 
 <body>
     <div class="container" id="vue-app">
+
+            
+                
+                
         
-        <div class="row">
-            <div class="col-sm-12">
-                <h1>My todos</h1>
-                <ul class="list-group">
-                    <li class="list-group-item" v-for="todo in todos">
-                        {{todo.title}}
-                        <button class="btn btn-warning btn-xs"
-                         v-on:click="deleteTodo(todo)">Delete</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="row">
-                <div class="col-sm-12">
-                    <form v-on:submit.prevent="addTodo(newTodo)">
-                        <div class="form-group">
-                            <input type="text" 
-                            v-model="newTodo.title"
-                            placeholder="add" class="form-control">
-                        </div>
-                        <div class="form-group">
-                                <button class="btn btn-success">add todo</button>
-                            </div>
-                    </form>
-                </div>
-            </div>
-<pre>{{$data|json}}</pre>
     </div>
+
+  
     
-    
+    <script src="libs/script.js"></script>
 
-<script>
-    new Vue({
-        el: "#vue-app",
-
-        data:   {
-            todos:[{id:1,title:'go fu'}],
-            newTodo : {id:null,title:null}
-        },
-
-        methods : {
-            addTodo(a){
-                this.todos.push(a)
-                this.newTodo = {id:null,title:null}
-            },
-            deleteTodo(todo){
-                var index = this.todos.indexOf(todo)
-                this.todos.splice(index, 1)
-            }
-        }
-    })
-</script>
 </body>
 </html>
