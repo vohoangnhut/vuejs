@@ -15,21 +15,31 @@
   <body>
 
         <div class="container" id="vueapp">
-                <messager></messager>
+                <messager 
+                title="Hello World" 
+                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus mi, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. "
+                >
+                </messager>
 
-                <article class="message" v-show="true">
-                        <div class="message-header">
-                            <p>Hello World</p>
-                            <button class="delete" aria-label="delete"></button>
-                        </div>
-                        <div class="message-body">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-                        </div>
-                    </article>
+                <modal v-show="isshow" @close="isshow = false">
+                        <h1 class="title">Notice</h1><p><strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+                </modal>
+                <a class="button is-primary" @click="isshow = true">Call Modal</a>
 
-                    <span class="icon">
-                            <i class="fa fa-home"></i>
-                          </span>
+                <hr/>
+
+                <tabs>
+                    <tab id="tab1" name="1" :selected=true>
+                        <h1>1</h1>
+                    </tab>
+                    <tab id="tab1" name="2">
+                         <h1>2</h1>
+                    </tab>
+                    <tab id="tab1" name="3">
+                        <h1>3</h1>
+                    </tab>
+                </tabs>
+
         </div>
 
 
