@@ -68,11 +68,7 @@ Vue.component('tabs',{
             });
         }
     },
-    computed: {
-        href() {
-            return 'foor'
-        }
-    }
+    
 })
 
 Vue.component('tab',{
@@ -89,6 +85,11 @@ Vue.component('tab',{
 
     data() {
         return {isActive: false}
+    },
+    computed: {
+        href() {
+            return '#' + this.name.toLowerCase().replace(/ /g,'-');
+        }
     },
 
     mounted() {
