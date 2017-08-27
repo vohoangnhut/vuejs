@@ -96,10 +96,48 @@ Vue.component('tab',{
         this.isActive = this.selected
     }
 })
+data = { counter: 0 };
+Vue.component('simple-counter', {
+    template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+    // data is technically a function, so Vue won't
+    // complain, but we return the same object
+    // reference for each component instance
+    data: function () {
+      return data;
+    }
+  })
 
 var app = new Vue({
     el : '#vueapp',
     data : {
-        isshow : false
-    }
+        isshow : false,
+        isChkBox : false,
+        //selected: 'A',
+        options: [
+            { text: 'One', value: 'A' },
+            { text: 'Two', value: 'B' },
+            { text: 'Three', value: 'C' }
+          ],
+
+          items: [1,2,3,4,5,6,7,8,9],
+          nextNum: 10
+    },
+
+    methods: {
+        randomIndex: function () {
+          return Math.floor(Math.random() * this.items.length)
+        },
+        add: function () {
+          this.items.splice(this.randomIndex(), 0, this.nextNum++)
+        },
+        remove: function () {
+          this.items.splice(this.randomIndex(), 1)
+        },
+        shuffle: function () {
+          this.items = _.shuffle(this.items)
+        },
+        sort(){
+            this.items.sort(function(a, b){return a-b});
+        }
+      }
 })
